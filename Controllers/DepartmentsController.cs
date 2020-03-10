@@ -26,6 +26,16 @@ namespace Session1_API_Kazan.Controllers
             return new JsonResult { Data = db.Departments.ToList() };
         }
 
+        public ActionResult GetDepartmentLocations(long DepartmentID)
+        {
+            return new JsonResult { Data = db.DepartmentLocations.Where(x => x.DepartmentID == DepartmentID && x.EndDate == null).Select(x => x).ToList() };
+        }
+
+        public ActionResult DepartmentLocations()
+        {
+            return new JsonResult { Data = db.Departments.ToList() };
+        }
+
         
         protected override void Dispose(bool disposing)
         {
