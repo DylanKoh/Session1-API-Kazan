@@ -300,8 +300,8 @@
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Session1Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Session1Model.Context.cs</LastGenOutput>
       <DependentUpon>Session1Model.edmx</DependentUpon>
+      <LastGenOutput>Session1Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Session1Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
