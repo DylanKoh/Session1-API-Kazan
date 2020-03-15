@@ -145,6 +145,7 @@
     </Compile>
     <Compile Include="Controllers\AssetGroupsController.cs" />
     <Compile Include="Controllers\AssetsController.cs" />
+    <Compile Include="Controllers\AssetTransferLogsController.cs" />
     <Compile Include="Controllers\DepartmentsController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -346,6 +347,7 @@
     <Folder Include="Models\" />
     <Folder Include="Views\AssetGroups\" />
     <Folder Include="Views\Assets\" />
+    <Folder Include="Views\AssetTransferLogs\" />
     <Folder Include="Views\Departments\" />
     <Folder Include="Views\Employees\" />
     <Folder Include="Views\Locations\" />

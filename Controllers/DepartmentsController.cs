@@ -33,7 +33,7 @@ namespace Session1_API_Kazan.Controllers
 
         public ActionResult DepartmentLocations()
         {
-            return new JsonResult { Data = db.Departments.ToList() };
+            return new JsonResult { Data = db.DepartmentLocations.ToList() };
         }
 
         
