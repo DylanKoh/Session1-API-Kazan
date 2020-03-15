@@ -19,6 +19,7 @@ namespace Session1_API_Kazan.Controllers
         }
 
         // POST: AssetTransferLogs
+        [HttpPost]
         public ActionResult Index()
         {
             var assetTransferLogs = db.AssetTransferLogs;
@@ -38,6 +39,31 @@ namespace Session1_API_Kazan.Controllers
 
             return Json("Unable to transfer Asset!");
         }
+
+        [HttpPost]
+        public ActionResult GetAssetLogs(long assetID)
+        {
+            var checkIfLogsExists = (from x in db.AssetTransferLogs
+                                     where x.AssetID == assetID
+                                     select x).FirstOrDefault();
+            if (checkIfLogsExists != null)
+            {
+                var assetLogs = (from x in db.AssetTransferLogs
+                                 where x.AssetID == assetID
+                                 select new
+                                 {
+                                     TransferDate = x.TransferDate,
+                                     FromLocation = db.DepartmentLocations.Where(y => y.ID == x.FromDepartmentLocationID).Select(y => y.Location.Name).FirstOrDefault(),
+                                     FromAssetSN = x.FromAssetSN,
+                                     ToLocation = db.DepartmentLocations.Where(y => y.ID == x.ToDepartmentLocationID).Select(y => y.Location.Name).FirstOrDefault(),
+                                     ToAssetSN = x.ToAssetSN
+                                 }).ToList();
+                return new JsonResult { Data = assetLogs };
+            }
+            return Json("No details available");
+            
+        }
+
 
         protected override void Dispose(bool disposing)
         {
